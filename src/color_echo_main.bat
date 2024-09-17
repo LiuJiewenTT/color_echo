@@ -47,7 +47,11 @@ goto :eof
 :show_help
     set color_echo_version=1.0.0
     set color_echo_author=LiuJiewenTT
+    set color_echo_repo=https://github.com/LiuJiewen/color_echo
+    set color_echo_license=MIT
     echo color_echo v%color_echo_version%, developed by %color_echo_author%.
+    echo Repository: %color_echo_repo%
+    echo LICENSE: %color_echo_license%
     echo.
     echo Usage: color_echo [options] commands
     echo.
@@ -90,10 +94,10 @@ goto :eof
     )
     echo [INFO]: console_reg_config=%console_reg_config%
     @REM reg query "%console_reg_config%" /v "ScreenColors"
-    for /f "usebackq tokens=3 delims= " %%A in (
+    for /f "usebackq tokens=3 delims= " %%i in (
         `reg query "%console_reg_config%" /v "ScreenColors"`
     ) do (
-        set "screen_color=%%A"
+        set "screen_color=%%i"
     )
     if defined screen_color (
         set "screen_color=%screen_color:~2,2%"
