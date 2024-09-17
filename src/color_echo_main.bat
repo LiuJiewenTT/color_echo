@@ -47,7 +47,7 @@ goto :eof
 :show_help
     set color_echo_version=1.0.0
     set color_echo_author=LiuJiewenTT
-    set color_echo_repo=https://github.com/LiuJiewen/color_echo
+    set color_echo_repo=https://github.com/LiuJiewenTT/color_echo
     set color_echo_license=MIT
     echo color_echo v%color_echo_version%, developed by %color_echo_author%.
     echo Repository: %color_echo_repo%
