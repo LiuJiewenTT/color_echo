@@ -16,6 +16,11 @@ Color Echo library for Windows CMD.
 
 ## ![image-20240917195358160](README.assets/image-20240917195358160.png)
 
+## 下载
+
+1. 您可以从[*Release*（发布）区](https://github.com/LiuJiewenTT/color_echo/releases)下载压缩包，直接解压即可使用。
+2. 您可以点击网页上的*Code*直接获取整个项目，不过并不推荐这么做。
+
 ## 使用
 
 查看示例和效果：
@@ -31,3 +36,36 @@ color_echo_main.bat --help
 ```
 
 您可以在调用前设置`screen_color`的值，可用值与使用`color`命令是一致的。`screen_color`的值会影响单独前景色重置和单独背景色重置的设置。
+
+> 若环境变量中无`screen_color`，程序会从注册表中读取。使用的注册表项可以通过设置环境变量`console_reg_config`进行更改。
+
+三项重置变量：
+
+1. `CE_RESET`: 完全重置，包括字体等。
+2. `FG_RESET`: 仅重置前景色。
+3. `BG_RESET`: 仅重置背景色。
+
+可使用的颜色变量：
+
+通式：
+
+``` cmd
+[FG|BG]_[COLOR_NAME|COLOR_[0-15|0-f]]
+```
+
+例：
+
+1. *FG_RED*
+2. *BG_COLOR_0*
+3. *FG_COLOR_e*
+
+解释：
+
+1. 首先一定是前缀`FG`或`BG`。
+2. 接着可以是颜色名，也可以是颜色序号。
+3. 如果使用颜色序号，有两种：
+   1. 一种是`0`到`15`，十进制，共16种颜色。
+   2. 一种是`0`到`f`（小写），十六进制，共16中颜色。
+
+> 暂时没有支持大写的打算，因为没有必要，并且增加大写的支持会让代码多出不少。
+
